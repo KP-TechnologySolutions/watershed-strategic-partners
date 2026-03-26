@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Watershed Strategic Partners | Fractional CxO Services — Charleston, SC</title>
+    <meta name="description" content="Senior leadership when you need it — without the full-time overhead. Strategic executive partnership for companies at inflection points. Proudly Charleston-based. Wherever you need us.">
+    <meta name="author" content="Nathan Holleman">
+    <meta name="keywords" content="fractional CIO,fractional CTO,fractional COO,Charleston SC,IT leadership,technology consulting,strategic planning,business consulting,leadership coaching,team building">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Watershed Strategic Partners | Fractional CxO Services">
+    <meta property="og:description" content="Strategic executive partnership for companies at inflection points. Fractional CIO, CTO, COO, leadership coaching, and strategic planning.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://water-shed.dreamhosters.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <style>
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a365d;
+            background: #fefdfb;
+            overflow-x: hidden;
+        }
+        
+        /* CSS Variables for Brand Colors */
+        :root {
+            --tide-cream: #fefdfb;
+            --tide-deep: #1a365d;
+            --tide-warm: #d95b2b;
+            --tide-blue: #3898c7;
+            --tide-teal: #48bba7;
+            --tide-text-secondary: #64748b;
+            --tide-text-muted: #94a3b8;
+            --tide-border: #e2e8f0;
+        }
+        
+        /* Animations */
+        @keyframes tide-float {
+            0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+            33% { transform: translate3d(30px, -30px, 0) rotate(1deg); }
+            66% { transform: translate3d(-20px, 20px, 0) rotate(-1deg); }
+        }
+        
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes draw-line {
+            from { stroke-dashoffset: 1; }
+            to { stroke-dashoffset: 0; }
+        }
+        
+        @keyframes pulse { 
+            0%, 100% { opacity: 1; } 
+            50% { opacity: 0.5; } 
+        }
+        
+        /* Utility Classes */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .animate-in { animation: fade-in-up 0.8s ease-out forwards; }
+        .animate-delay-1 { animation-delay: 0.2s; }
+        .animate-delay-2 { animation-delay: 0.4s; }
+        .animate-delay-3 { animation-delay: 0.6s; }
+        
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--tide-warm), var(--tide-blue), var(--tide-teal));
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            z-index: 10000;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: rgba(254, 253, 251, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(254, 253, 251, 0.98);
+            border-bottom-color: rgba(226, 232, 240, 0.2);
+            box-shadow: 0 4px 20px rgba(26, 54, 93, 0.05);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--tide-deep);
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+        
+        .logo:hover { transform: translateY(-1px); }
+        
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            position: relative;
+            color: var(--tide-text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover { color: var(--tide-deep); }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--tide-warm);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after { width: 100%; }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--tide-deep);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(26, 54, 93, 0.15);
+        }
+        
+        .cta-btn:hover {
+            background: var(--tide-warm);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(217, 91, 43, 0.25);
+        }
+        
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: 2rem;
+            padding-left: 2rem;
+            border-left: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        
+        .header-meta a, .header-meta span {
+            font-size: 0.75rem;
+            color: var(--tide-text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .header-meta a:hover { color: var(--tide-warm); }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 0 4rem;
+            background: var(--tide-cream);
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-bg {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            animation: tide-float 12s ease-in-out infinite;
+        }
+        
+        .floating-bg:nth-child(1) {
+            top: -20%;
+            right: -10%;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(56,152,199,0.25) 0%, transparent 70%);
+            animation-delay: 0s;
+        }
+        
+        .floating-bg:nth-child(2) {
+            bottom: -15%;
+            left: -5%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(72,187,167,0.3) 0%, transparent 70%);
+            animation-delay: -4s;
+            animation-direction: reverse;
+        }
+        
+        .floating-bg:nth-child(3) {
+            top: 30%;
+            right: 15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(217,91,43,0.2) 0%, transparent 70%);
+            animation-delay: -8s;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text {
+            opacity: 0;
+            animation: fade-in-up 1s ease-out 0.5s forwards;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(217, 91, 43, 0.05);
+            border: 1px solid rgba(217, 91, 43, 0.15);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--tide-deep);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-badge .pulse-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--tide-warm);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
+            font-weight: 300;
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            color: var(--tide-deep);
+        }
+        
+        .hero .highlight {
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .hero .highlight .squiggle {
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+        }
+        
+        .hero .highlight .squiggle path {
+            stroke: var(--tide-warm);
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            animation: draw-line 2s ease-out 1.5s forwards;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--tide-text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+        
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--tide-deep);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(26, 54, 93, 0.15);
+        }
+        
+        .btn-primary:hover {
+            background: var(--tide-warm);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(217, 91, 43, 0.25);
+        }
+        
+        .btn-primary svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-primary:hover svg {
+            transform: translateX(4px);
+        }
+        
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            border: 2px solid var(--tide-border);
+            color: var(--tide-deep);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--tide-warm);
+            color: var(--tide-warm);
+        }
+        
+        .stats {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .stat {
+            text-align: center;
+            opacity: 0;
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+        
+        .stat:nth-child(1) { animation-delay: 1.8s; }
+        .stat:nth-child(2) { animation-delay: 2.0s; }
+        .stat:nth-child(3) { animation-delay: 2.2s; }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--tide-deep);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--tide-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+        
+        /* Floating Cards */
+        .hero-visual {
+            position: relative;
+            height: 500px;
+        }
+        
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            animation: fade-in-up 1s ease-out forwards;
+        }
+        
+        .card-testimonial {
+            top: 0;
+            right: 0;
+            width: 320px;
+            animation-delay: 2.5s;
+        }
+        
+        .card-retention {
+            top: 200px;
+            right: 40px;
+            width: 260px;
+            animation-delay: 2.8s;
+        }
+        
+        .card-location {
+            top: 370px;
+            right: 20px;
+            width: 220px;
+            animation-delay: 3.1s;
+        }
+        
+        .card-testimonial .quote-icon {
+            width: 24px;
+            height: 24px;
+            color: rgba(217, 91, 43, 0.4);
+            margin-bottom: 1rem;
+        }
+        
+        .card-testimonial blockquote {
+            font-size: 0.875rem;
+            color: rgba(26, 54, 93, 0.8);
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .author-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(217, 91, 43, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--tide-warm);
+        }
+        
+        .author-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--tide-deep);
+        }
+        
+        .author-title {
+            font-size: 0.625rem;
+            color: var(--tide-text-muted);
+        }
+        
+        .retention-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .retention-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--tide-text-muted);
+        }
+        
+        .retention-badge {
+            font-size: 0.625rem;
+            font-weight: 600;
+            color: #059669;
+            background: rgba(5, 150, 105, 0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 20px;
+        }
+        
+        .retention-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--tide-deep);
+            margin-bottom: 0.5rem;
+        }
+        
+        .chart {
+            width: 100%;
+            height: 32px;
+        }
+        
+        .chart path {
+            stroke: rgba(217, 91, 43, 0.6);
+            fill: rgba(217, 91, 43, 0.08);
+        }
+        
+        .location-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .location-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(26, 54, 93, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .location-text .location-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--tide-deep);
+        }
+        
+        .location-text .location-est {
+            font-size: 0.625rem;
+            color: var(--tide-text-muted);
+        }
+        
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fade-in-up 1s ease-out 3.5s forwards;
+        }
+        
+        .scroll-text {
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--tide-text-muted);
+        }
+        
+        .scroll-mouse {
+            width: 20px;
+            height: 32px;
+            border: 2px solid rgba(148, 163, 184, 0.3);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding-top: 6px;
+        }
+        
+        .scroll-dot {
+            width: 4px;
+            height: 6px;
+            background: rgba(148, 163, 184, 0.5);
+            border-radius: 2px;
+            animation: scroll-bounce 2s infinite;
+        }
+        
+        @keyframes scroll-bounce {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(8px); opacity: 0.5; }
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .services-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--tide-deep);
+        }
+        
+        .services-header p {
+            font-size: 1.25rem;
+            color: var(--tide-text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            position: relative;
+            background: #f8fafc;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--tide-warm), var(--tide-blue), var(--tide-teal));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(217, 91, 43, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-badge {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            z-index: 10;
+        }
+        
+        .service-card.anchor .service-badge { background: var(--tide-warm); }
+        .service-card.project .service-badge { background: var(--tide-blue); }
+        .service-card.coaching .service-badge { background: var(--tide-teal); }
+        
+        .service-card.anchor {
+            background: linear-gradient(135deg, #fff5f0 0%, #f8fafc 100%);
+        }
+        
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--tide-deep);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            background: var(--tide-warm);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--tide-deep);
+        }
+        
+        .service-card p {
+            color: var(--tide-text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.75rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--tide-deep);
+        }
+        
+        .feature-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .service-card.anchor .feature-dot { background: var(--tide-warm); }
+        .service-card.project .feature-dot { background: var(--tide-blue); }
+        .service-card.coaching .feature-dot { background: var(--tide-teal); }
+        
+        .services-cta {
+            text-align: center;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--tide-deep);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .footer-brand img {
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            filter: brightness(1.2);
+        }
+        
+        .footer h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(217, 91, 43, 0.8);
+            margin-bottom: 1rem;
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-content { padding: 0 1rem; height: 70px; }
+            .nav, .header-meta { display: none; }
+            .hero-content { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-visual { display: none; }
+            .hero { padding: 4rem 0 2rem; }
+            .container { padding: 0 1rem; }
+            .stats { justify-content: space-between; gap: 1rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .hero-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <header class="header" id="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="/images/watershed-logo.png" alt="Watershed Strategic Partners">
+                <span>Watershed</span>
+            </a>
+            <nav class="nav">
+                <a href="/services" class="nav-link">Services</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/contact" class="nav-link">Contact</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/contact" class="cta-btn">Let's Talk</a>
+            </nav>
+            <div class="header-meta">
+                <a href="mailto:info@watershedcio.com" title="info@watershedcio.com">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="M22 4L12 13 2 4"></path>
+                    </svg>
+                </a>
+                <span>Charleston, SC</span>
+                <a href="https://www.linkedin.com/in/nathanholleman/" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-bg">
+                <div class="floating-bg"></div>
+                <div class="floating-bg"></div>
+                <div class="floating-bg"></div>
+            </div>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <div class="pulse-dot"></div>
+                            Fractional CxO Leadership
+                        </div>
+                        
+                        <h1>
+                            Senior leadership when you need it — without the 
+                            <span class="highlight">
+                                full-time overhead.
+                                <svg class="squiggle" viewBox="0 0 300 12" preserveAspectRatio="none">
+                                    <path d="M0,8 C50,2 100,12 150,6 C200,0 250,10 300,6"></path>
+                                </svg>
+                            </span>
+                        </h1>
+                        
+                        <p>Strategic executive partnership for companies at inflection points. Proudly Charleston-based. Wherever you need us.</p>
+                        
+                        <div class="hero-buttons">
+                            <a href="/contact" class="btn-primary">
+                                Schedule a Conversation
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 10h12M12 4l6 6-6 6"></path>
+                                </svg>
+                            </a>
+                            <a href="/about" class="btn-secondary">Our Story</a>
+                        </div>
+                        
+                        <div class="stats">
+                            <div class="stat">
+                                <div class="stat-number">18+</div>
+                                <div class="stat-label">Years</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">200+</div>
+                                <div class="stat-label">Projects</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">95%</div>
+                                <div class="stat-label">Retention</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="floating-card card-testimonial">
+                            <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"></path>
+                            </svg>
+                            <blockquote>"The strategic clarity we gained was invaluable. Practical guidance that actually moved our business forward."</blockquote>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MC</div>
+                                <div>
+                                    <div class="author-name">Michael C.</div>
+                                    <div class="author-title">Founder, FinanceFlow</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="floating-card card-retention">
+                            <div class="retention-header">
+                                <div class="retention-label">Client Retention</div>
+                                <div class="retention-badge">+12% YoY</div>
+                            </div>
+                            <div class="retention-number">95%</div>
+                            <svg class="chart" viewBox="0 0 200 40">
+                                <path d="M0,35 C30,32 50,28 80,22 C110,16 130,18 150,12 C170,6 185,8 200,4" stroke-width="2.5" stroke-linecap="round"></path>
+                                <path d="M0,35 C30,32 50,28 80,22 C110,16 130,18 150,12 C170,6 185,8 200,4 L200,40 L0,40Z"></path>
+                            </svg>
+                        </div>
+                        
+                        <div class="floating-card card-location">
+                            <div class="location-content">
+                                <div class="location-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M2 12c1.5-2 3.5-3 5.5-1s3.5 1 5.5-1 3.5-3 5.5-1 3.5 1 3.5-1"></path>
+                                        <path d="M2 17c1.5-2 3.5-3 5.5-1s3.5 1 5.5-1 3.5-3 5.5-1 3.5 1 3.5-1" opacity="0.4"></path>
+                                    </svg>
+                                </div>
+                                <div class="location-text">
+                                    <div class="location-name">Charleston, SC</div>
+                                    <div class="location-est">Est. 2007</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="scroll-text">Scroll</div>
+                <div class="scroll-mouse">
+                    <div class="scroll-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <div class="services-header">
+                    <h2>What We Do</h2>
+                    <p>Three focused service pillars designed to meet you where you are and scale with your growth</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card anchor">
+                        <div class="service-badge">Anchor Service</div>
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <h3>Fractional Executive Leadership</h3>
+                        <p>The executive layer your company needs before it can afford a full leadership team. CTO + CIO + COO under one roof.</p>
+                        <div class="service-features">
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Technology Strategy
+                            </div>
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Operations Excellence
+                            </div>
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Digital Transformation
+                            </div>
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Team Leadership
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card project">
+                        <div class="service-badge">Project-Based</div>
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                            </svg>
+                        </div>
+                        <h3>Strategic Accelerators</h3>
+                        <p>Discrete, time-boxed engagements with clear deliverables. Perfect entry points that often convert to retainers.</p>
+                        <div class="service-features">
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Technology Roadmap & Audit
+                            </div>
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Organizational Scaling Sprint
+                            </div>
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Product Ownership Sprint
+                            </div>
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Clear Deliverables
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card coaching">
+                        <div class="service-badge">Standalone + Add-on</div>
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3>Leadership Coaching</h3>
+                        <p>Strategic coaching specifically for founders and early executive teams navigating growth challenges.</p>
+                        <div class="service-features">
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Founder Coaching
+                            </div>
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Executive Team Development
+                            </div>
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Strategic Decision Making
+                            </div>
+                            <div class="feature">
+                                <div class="feature-dot"></div>
+                                Leadership Transition
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-cta">
+                    <a href="/contact" class="btn-primary">
+                        Explore Your Options
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 10h12M12 4l6 6-6 6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-brand">
+                        <img src="/images/watershed-logo.png" alt="Watershed">
+                        <span>Watershed</span>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 1rem;">
+                        Fractional CxO services, strategic coaching, and leadership development for growing companies. Charleston, SC — serving businesses globally.
+                    </p>
+                    <p style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">Est. 2007</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/services/fractional-executive-leadership">Fractional Executive Leadership</a></li>
+                        <li><a href="/services/strategic-accelerators">Strategic Accelerators</a></li>
+                        <li><a href="/services/leadership-coaching">Leadership Coaching</a></li>
+                        <li><a href="/contact">Schedule Consultation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@watershedcio.com">info@watershedcio.com</a></li>
+                        <li style="color: rgba(255,255,255,0.7);">Charleston, SC</li>
+                        <li><a href="https://www.linkedin.com/in/nathanholleman/" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Watershed Strategic Partners. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll progress bar
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('progressBar').style.transform = `scaleX(${scrollPercent / 100})`;
+        }
+
+        // Header scroll effect
+        function updateHeader() {
+            const header = document.getElementById('header');
+            if (window.pageYOffset > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Intersection Observer for animations
+        const observeElements = () => {
+            const elements = document.querySelectorAll('.service-card, .stat');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(40px)';
+                el.style.transition = 'all 0.8s ease-out';
+                observer.observe(el);
+            });
+        };
+
+        // Initialize
+        window.addEventListener('scroll', () => {
+            updateProgressBar();
+            updateHeader();
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            observeElements();
+            updateProgressBar();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
